@@ -34,3 +34,25 @@ const data = [
     Transmission: "Automatic",
     },
     ];
+
+
+console.log(data[0])
+
+
+document.getElementById('carContainer').innerHTML =`
+<div class="div shadow p-4 w-50 rounded">
+<img src="${data[0].imageURL}" alt="">
+<h2>Car Name: ${data[0].name}</h2>
+<h5>Car Detail: ${data[0].description}</h5>
+<h5>Transmission: ${data[0].Transmission}<h5>
+<button class="btn btn-primary">car Price: <samp id="car-price">${data[0].price}</samp></button>
+</div>
+
+<div class="div shadow p-4 w-50 rounded">
+<img src="${data[1].imageURL}" alt="">
+<h2>Car Name: ${data[1].name}</h2>
+<h5>Car Detail: ${data[1].description}</h5>
+<h5>Transmission: ${data[1].Transmission}<h5>
+<button class="btn btn-primary">car Price: <samp id="car-price">${data[1].price}</samp></button>
+</div>
+`;
