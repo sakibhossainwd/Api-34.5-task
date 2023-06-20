@@ -1,11 +1,14 @@
-const loadCoutrys = () => {
-    fetch('https://restcountries.com/v3.1/region/Africa')
+const loadCoutrys = (regionName) => {
+    const url = `https://restcountries.com/v3.1/region/${regionName}`
+    console.log(url);
+    fetch(url)
     .then(res => res.json())
     .then(data => regionCountrys(data))
 }
 
 const regionCountrys = countrys => {
     const countryContainer = document.getElementById('country-container');
+    countryContainer.innerHTML = '';
     countrys.forEach(country => {
         // console.log(country.altSpellings[2]);
         const div = document.createElement('div');
@@ -24,9 +27,19 @@ const regionCountrys = countrys => {
     });
 }
 
-document.getElementById('region-list').addEventListener('click', function(){
-    const regionCountry = document.getElementById('region-list');
-    console.log(regionCountry);
+document.getElementById('region-list').addEventListener('click', function(even){
+    const regionName = even.target.innerText;
+    console.log(regionName);
+    loadCoutrys(regionName);
+
+
+    // display present country name
+    const displayCountry = document.getElementById('display-country');
+    console.log(displayCountry);
+    displayCountry.innerText = regionName;
+
+    
 })
 
-loadCoutrys();
+
+loadCoutrys('Asia');
